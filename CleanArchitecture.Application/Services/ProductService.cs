@@ -40,6 +40,7 @@ namespace CleanArchitecture.Application.Services
             var productMap = _mapper.Map<Product>(productDTO);
             await _productRepository.CreateAsync(productMap);
         }
+
         public async Task Update(ProductDTO productDTO)
         {
             var productMap = _mapper.Map<Product>(productDTO);
