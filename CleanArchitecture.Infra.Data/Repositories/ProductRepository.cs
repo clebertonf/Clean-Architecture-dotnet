@@ -24,14 +24,16 @@ namespace CleanArchitecture.Infra.Data.Repositories
 
         public async Task<Product> GetByIdAsync(int? id)
         {
-            return await _applicationDbContext.Products.FindAsync(id);
-        }
-
-        public async Task<Product> GetProductCategoryAsync(int? id)
-        {
+            //return await _applicationDbContext.Products.FindAsync(id);
             return await _applicationDbContext.Products.Include(category => category.CategoryId)
                                                        .SingleOrDefaultAsync(product => product.Id.Equals(id));
         }
+
+        //public async Task<Product> GetProductCategoryAsync(int? id)
+        //{
+        //    return await _applicationDbContext.Products.Include(category => category.CategoryId)
+        //                                               .SingleOrDefaultAsync(product => product.Id.Equals(id));
+        //}
 
         public async Task<IEnumerable<Product>> GetProductsAsync()
         {
