@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CleanArchitecture.Domain.Entities
 {
-    public class Category : BaseEntity
+    public sealed class Category : BaseEntity
     {
         public string Name { get; set; }
         public ICollection<Product> Products { get; set; }
@@ -15,9 +15,8 @@ namespace CleanArchitecture.Domain.Entities
 
         public Category(int id, string name)
         {
-            DomainExceptionValidation.When(id <= 0, "Invalid id!");
-            ValidateDomain(name);
             Id = id;
+            ValidateDomain(name);
         }
 
         public void Update(string name)
