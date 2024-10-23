@@ -1,6 +1,7 @@
 ﻿using CleanArchitecture.Application.DTOs;
 using CleanArchitecture.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -69,6 +70,12 @@ namespace CleanArchitecture.API.Controllers
 
             await _categoryService.Add(categoryDTO);
             return Created(string.Empty, categoryDTO);
+        }
+
+        [HttpPut("")]
+        public void Update([FromBody] CategoryDTO categoryDTO)
+        {
+            return;
         }
     }
 }
