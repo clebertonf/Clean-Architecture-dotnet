@@ -2,11 +2,14 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using System.Text.Json.Serialization;
 
 namespace CleanArchitecture.Application.DTOs
 {
     public class ProductDTO
     {
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "Name is required!")]
         [MinLength(3)]
         [MaxLength(100)]
@@ -35,6 +38,7 @@ namespace CleanArchitecture.Application.DTOs
         [DisplayName("Product Image")]
         public string Image { get; set; }
 
+        [JsonIgnore]
         public Category Category { get; set; }
 
         [DisplayName("Categories")]

@@ -38,7 +38,7 @@ namespace CleanArchitecture.Domain.Entities
             DomainExceptionValidation.When(string.IsNullOrEmpty(description),
                 "Description is required!");
             DomainExceptionValidation.When(description.Length < 10,
-                "Name cannot be less than 10 characters!");
+                "Description cannot be less than 10 characters!");
             DomainExceptionValidation.When(price < 0,
                 "Invalid price value.");
             DomainExceptionValidation.When(stock < 0,
