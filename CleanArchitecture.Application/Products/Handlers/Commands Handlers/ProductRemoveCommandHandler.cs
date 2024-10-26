@@ -6,7 +6,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CleanArchitecture.Application.Products.Handlers
+namespace CleanArchitecture.Application.Products.Handlers.Commands
 {
     public class ProductRemoveCommandHandler : IRequestHandler<ProductRemoveCommand, Product>
     {
