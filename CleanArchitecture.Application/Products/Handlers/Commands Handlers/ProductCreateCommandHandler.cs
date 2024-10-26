@@ -6,7 +6,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CleanArchitecture.Application.Products.Handlers
+namespace CleanArchitecture.Application.Products.Handlers.Commands
 {
     public class ProductCreateCommandHandler : IRequestHandler<ProductCreateCommand, Product>
     {
@@ -20,7 +20,7 @@ namespace CleanArchitecture.Application.Products.Handlers
         {
             var product = new Product(request.Name, request.Description, request.Price, request.Stock, request.Image);
 
-            if(product is null)
+            if (product is null)
             {
                 throw new ApplicationException("Error creating entity.");
             }

@@ -6,7 +6,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CleanArchitecture.Application.Products.Handlers
+namespace CleanArchitecture.Application.Products.Handlers.Commands
 {
     public class ProductUpdateCommandHandler : IRequestHandler<ProductUpdateCommand, Product>
     {
@@ -21,12 +21,12 @@ namespace CleanArchitecture.Application.Products.Handlers
         {
             var product = await _productRepository.GetByIdAsync(request.Id);
 
-            if(product is null)
+            if (product is null)
             {
                 throw new ApplicationException("Entity could not be found");
             }
 
-            product.Update(request.Name, request.Description, request.Price, request.Stock,  request.Image, request.CategoryId);
+            product.Update(request.Name, request.Description, request.Price, request.Stock, request.Image, request.CategoryId);
             return await _productRepository.UpdateAsync(product);
         }
     }

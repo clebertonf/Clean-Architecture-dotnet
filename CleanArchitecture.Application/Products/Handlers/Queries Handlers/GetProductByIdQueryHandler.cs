@@ -5,7 +5,7 @@ using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CleanArchitecture.Application.Products.Handlers
+namespace CleanArchitecture.Application.Products.Handlers.Queries
 {
     public class GetProductByIdQueryHandler : IRequestHandler<GetProductByIdQuery, Product>
     {
