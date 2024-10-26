@@ -1,7 +1,6 @@
 ﻿using CleanArchitecture.Application.DTOs;
 using CleanArchitecture.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -73,9 +72,29 @@ namespace CleanArchitecture.API.Controllers
         }
 
         [HttpPut("")]
-        public void Update([FromBody] CategoryDTO categoryDTO)
+        public async Task<ActionResult> Put([FromBody] CategoryDTO categoryDTO, int id)
         {
-            return;
+           if(id != categoryDTO.Id || categoryDTO is null)
+            {
+                return BadRequest();
+            }
+
+            await _categoryService.Update(categoryDTO);
+            return Ok(categoryDTO);
+        }
+
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult<CategoryDTO>> Delete(int id)
+        {
+            var category = await _categoryService.GetById(id);
+
+            if(category is null)
+            {
+                return NotFound();
+            }
+
+            await _categoryService.Remove(id);
+            return Ok();
         }
     }
 }
