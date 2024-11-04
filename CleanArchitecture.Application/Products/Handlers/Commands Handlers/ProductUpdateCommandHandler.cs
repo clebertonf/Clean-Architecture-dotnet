@@ -1,12 +1,12 @@
-﻿using CleanArchitecture.Application.Products.Commands;
+﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
+using CleanArchitecture.Application.Products.Commands;
 using CleanArchitecture.Domain.Entities;
 using CleanArchitecture.Domain.Interfaces;
 using MediatR;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace CleanArchitecture.Application.Products.Handlers.Commands
+namespace CleanArchitecture.Application.Products.Handlers.Commands_Handlers
 {
     public class ProductUpdateCommandHandler : IRequestHandler<ProductUpdateCommand, Product>
     {
