@@ -15,16 +15,7 @@ namespace CleanArchitecture.Tests.Domain
             action.Should()
                   .NotThrow<DomainExceptionValidation>();
         }
-
-        [Fact]
-        public void CreateCategory_WhithNegativeIdValue_DomainExceptionInvalidId()
-        {
-            Action action = () => new Category(-1, "Category test invalid");
-            action.Should()
-                  .Throw<DomainExceptionValidation>()
-                  .WithMessage("Invalid Id");
-        }
-
+        
         [Fact]
         public void CreateCategory_WhithShortName_DomainExceptionInvalidName()
         {

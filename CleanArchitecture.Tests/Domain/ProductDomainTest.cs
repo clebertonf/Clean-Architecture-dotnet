@@ -59,7 +59,7 @@ namespace CleanArchitecture.Tests.Domain
             Action action = () => new Product(2, "Product 3", "Descr", 99, 10, "image test");
             action.Should()
                   .ThrowExactly<DomainExceptionValidation>()
-                  .WithMessage("Name cannot be less than 10 characters!");
+                  .WithMessage("Description cannot be less than 10 characters!");
         }
 
         [Fact]
